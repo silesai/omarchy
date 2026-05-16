@@ -86,14 +86,13 @@ aur_install_and_launch() {
 }
 
 show_learn_menu() {
-  case $(menu "Learn" "  Keybindings\n  Tmux keybindings\n  Omarchy\n  Hyprland\n󰣇  Arch\n  Neovim\n󱆃  Bash") in
+  case $(menu "Learn" "  Keybindings\n  Tmux keybindings\n  Omarchy\n  Hyprland\n󰣇  Arch\n󱆃  Bash") in
   *Tmux*) omarchy-menu-tmux-keybindings ;;
   *Keybindings*) omarchy-menu-keybindings ;;
   *Omarchy*) omarchy-launch-webapp "https://learn.omacom.io/2/the-omarchy-manual" ;;
   *Hyprland*) omarchy-launch-webapp "https://wiki.hypr.land/" ;;
   *Arch*) omarchy-launch-webapp "https://wiki.archlinux.org/title/Main_page" ;;
   *Bash*) omarchy-launch-webapp "https://devhints.io/bash" ;;
-  *Neovim*) omarchy-launch-webapp "https://www.lazyvim.org/keymaps" ;;
   *) show_main_menu ;;
   esac
 }
@@ -453,35 +452,29 @@ show_setup_default_terminal_menu() {
 
 show_setup_default_editor_menu() {
   local options=""
-  omarchy-cmd-present nvim && options="$options  Neovim"
   omarchy-cmd-present code && options="${options:+$options\n}  VSCode"
   omarchy-cmd-present cursor && options="${options:+$options\n}  Cursor"
   omarchy-cmd-present zeditor && options="${options:+$options\n}  Zed"
   omarchy-cmd-present sublime_text && options="${options:+$options\n}  Sublime Text"
   omarchy-cmd-present helix && options="${options:+$options\n}  Helix"
-  omarchy-cmd-present vim && options="${options:+$options\n}  Vim"
   omarchy-cmd-present emacs && options="${options:+$options\n}  Emacs"
 
   local current=""
   case "$(omarchy-default-editor)" in
-  nvim) current="  Neovim" ;;
   code) current="  VSCode" ;;
   cursor) current="  Cursor" ;;
   zed | zeditor) current="  Zed" ;;
   sublime_text) current="  Sublime Text" ;;
   helix) current="  Helix" ;;
-  vim) current="  Vim" ;;
   emacs) current="  Emacs" ;;
   esac
 
   case $(menu "Default Editor" "$options" "" "$current") in
-  *Neovim*) omarchy-default-editor nvim ;;
   *VSCode*) omarchy-default-editor code ;;
   *Cursor*) omarchy-default-editor cursor ;;
   *Zed*) omarchy-default-editor zed ;;
   *Sublime*) omarchy-default-editor sublime_text ;;
   *Helix*) omarchy-default-editor helix ;;
-  *Vim*) omarchy-default-editor vim ;;
   *Emacs*) omarchy-default-editor emacs ;;
   *) show_setup_default_menu ;;
   esac
@@ -556,26 +549,23 @@ show_install_browser_menu() {
 }
 
 show_install_service_menu() {
-  case $(menu "Install" "  Dropbox\n  Tailscale\n󱇱  NordVPN [AUR]\n󰏖  ONCE\n☀  Sunshine\n󰟵  Bitwarden\n  Chromium Account") in
-  *Dropbox*) present_terminal omarchy-install-dropbox ;;
+  case $(menu "Install" "  Tailscale\n󱇱  NordVPN [AUR]\n󰏖  ONCE\n☀  Sunshine\n󰟵  Bitwarden\n") in
   *Tailscale*) present_terminal omarchy-install-tailscale ;;
   *NordVPN*) present_terminal omarchy-install-nordvpn ;;
   *ONCE*) present_terminal omarchy-install-once ;;
   *Sunshine*) present_terminal omarchy-install-service-sunshine ;;
   *Bitwarden*) install_and_launch "Bitwarden" "bitwarden bitwarden-cli" "bitwarden" ;;
-  *Chromium*) present_terminal omarchy-install-chromium-google-account ;;
   *) show_install_menu ;;
   esac
 }
 
 show_install_editor_menu() {
-  case $(menu "Install" "  VSCode\n  Cursor\n  Zed\n  Sublime Text\n  Helix\n  Vim\n  Emacs") in
+  case $(menu "Install" "  VSCode\n  Cursor\n  Zed\n  Sublime Text\n  Helix\n  Emacs") in
   *VSCode*) present_terminal omarchy-install-vscode ;;
   *Cursor*) install_and_launch "Cursor" "cursor-bin" "cursor" ;;
   *Zed*) present_terminal omarchy-install-zed ;;
   *Sublime*) install_and_launch "Sublime Text" "sublime-text-4" "sublime_text" ;;
   *Helix*) present_terminal omarchy-install-helix ;;
-  *Vim*) install "Vim" "vim" ;;
   *Emacs*) install "Emacs" "emacs-wayland" && systemctl --user enable --now emacs.service ;;
   *) show_install_menu ;;
   esac
