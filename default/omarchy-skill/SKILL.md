@@ -207,7 +207,7 @@ cp ~/.config/hypr/bindings.conf ~/.config/hypr/bindings.conf.bak.$(date +%s)
 ### Pattern 2: Make a new theme
 
 1. Create a directory under ~/.config/omarchy/themes.
-2. See how an existing theme is done via ~/.local/share/omarchy/themes/catppuccin.
+2. See how an existing theme is done via ~/.local/share/omarchy/themes/ethereal.
 3. Download a matching background (or several) from the internet and put them in ~/.config/omarchy/themes/[name-of-new-theme]
 4. When done with the theme, run `omarchy theme set "Name of new theme"`
 
@@ -379,7 +379,7 @@ This skill intentionally does not cover Omarchy source development. Do not use t
 
 ## Example Requests
 
-- "Change my theme to catppuccin" -> `omarchy theme set catppuccin`
+- "Change my theme to eloelo" -> `omarchy theme set eloelo`
 - "Add a keybinding for Super+E to open file manager" -> Check existing bindings first, add `unbind` if needed, then add `bind` in `~/.config/hypr/bindings.conf`
 - "Configure my external monitor" -> Edit `~/.config/hypr/monitors.conf`
 - "Make the window gaps smaller" -> Edit `~/.config/hypr/looknfeel.conf`
@@ -387,6 +387,6 @@ This skill intentionally does not cover Omarchy source development. Do not use t
 - "Set a reminder to pickup jack in 15 minutes" -> `omarchy reminder 15 "Pickup Jack"`
 - "Show my reminders" -> `omarchy reminder show`
 - "Clear all reminders" -> `omarchy reminder clear`
-- "Customize the catppuccin theme colors" -> Create `~/.config/omarchy/themes/catppuccin-custom/` by copying from stock, then edit
+- "Customize the eloelo theme colors" -> Create `~/.config/omarchy/themes/eloelo-custom/` by copying from stock, then edit
 - "Run a script every time I change themes" -> Create `~/.config/omarchy/hooks/theme-set`
 - "Reset waybar to defaults" -> `omarchy refresh waybar`
