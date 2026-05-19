@@ -86,6 +86,7 @@ aur_install_and_launch() {
 }
 
 show_learn_menu() {
+  case $(menu "Learn" "  Keybindings\n  Tmux keybindings\n  Omarchy\n  Hyprland\n󰣇  Arch\n  Neovim\n󱆃  Bash") in
   case $(menu "Learn" "  Keybindings\n  Tmux keybindings\n  Omarchy\n  Hyprland\n󰣇  Arch\n󱆃  Bash") in
   *Tmux*) omarchy-menu-tmux-keybindings ;;
   *Keybindings*) omarchy-menu-keybindings ;;
@@ -93,6 +94,7 @@ show_learn_menu() {
   *Hyprland*) omarchy-launch-webapp "https://wiki.hypr.land/" ;;
   *Arch*) omarchy-launch-webapp "https://wiki.archlinux.org/title/Main_page" ;;
   *Bash*) omarchy-launch-webapp "https://devhints.io/bash" ;;
+  *Neovim*) omarchy-launch-webapp "https://www.lazyvim.org/keymaps" ;;
   *) show_main_menu ;;
   esac
 }
@@ -452,6 +454,7 @@ show_setup_default_terminal_menu() {
 
 show_setup_default_editor_menu() {
   local options=""
+  omarchy-cmd-present nvim && options="$options  Neovim"
   omarchy-cmd-present code && options="${options:+$options\n}  VSCode"
   omarchy-cmd-present cursor && options="${options:+$options\n}  Cursor"
   omarchy-cmd-present zeditor && options="${options:+$options\n}  Zed"
@@ -461,6 +464,7 @@ show_setup_default_editor_menu() {
 
   local current=""
   case "$(omarchy-default-editor)" in
+  nvim) current="  Neovim" ;;
   code) current="  VSCode" ;;
   cursor) current="  Cursor" ;;
   zed | zeditor) current="  Zed" ;;
@@ -470,6 +474,7 @@ show_setup_default_editor_menu() {
   esac
 
   case $(menu "Default Editor" "$options" "" "$current") in
+  *Neovim*) omarchy-default-editor nvim ;;
   *VSCode*) omarchy-default-editor code ;;
   *Cursor*) omarchy-default-editor cursor ;;
   *Zed*) omarchy-default-editor zed ;;

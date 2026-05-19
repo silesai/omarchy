@@ -76,6 +76,7 @@ luarocks
 mako
 man-db
 mariadb-libs
+mc
 mise
 mpv
 mpv-mpris
@@ -86,9 +87,11 @@ noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
 nss-mdns
+nvim
 micro
 obs-studio
 obsidian
+omarchy-nvim
 omarchy-walker
 pamixer
 pinta
