@@ -1,8 +1,13 @@
 # Omarchy
 
-Omarchy is a beautiful, modern & opinionated Linux distribution by DHH.
+My own take on marchy. You need to install
 
-Read more at [omarchy.org](https://omarchy.org).
+- jamesdsp
+- firefox
+- chrome
+- vscode
+  - numbered bookmarks
+  - lua
 
 ## License
 

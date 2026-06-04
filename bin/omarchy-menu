@@ -86,7 +86,6 @@ aur_install_and_launch() {
 }
 
 show_learn_menu() {
-  case $(menu "Learn" "  Keybindings\n  Tmux keybindings\n  Omarchy\n  Hyprland\n󰣇  Arch\n  Neovim\n󱆃  Bash") in
   case $(menu "Learn" "  Keybindings\n  Tmux keybindings\n  Omarchy\n  Hyprland\n󰣇  Arch\n󱆃  Bash") in
   *Tmux*) omarchy-menu-tmux-keybindings ;;
   *Keybindings*) omarchy-menu-keybindings ;;
