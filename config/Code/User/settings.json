@@ -1,6 +1,9 @@
 {
     "workbench.colorTheme": "Tokyo Night",
     "explorer.confirmDelete": false,
-    "workbench.editor.showTabs": "none"
+    "workbench.editor.showTabs": "none",
+    "editor.fontSize": 14,
+    "window.zoomLevel": 3
 }
+
 

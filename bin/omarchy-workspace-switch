@@ -1,0 +1,24 @@
+#! /bin/bash
+
+# omarchy:summary=switch workspace on both of the monitors
+
+# in order to debug which monitor is which use:
+# hyprctl monitors -j | jq '.[] | {id, name, transform, focused}'
+
+target="$1"
+active_monitor_id=$(hyprctl monitors -j | jq '.[] | select(.focused == true).id')
+passive_monitor_id=$(hyprctl monitors -j | jq '.[] | select(.focused == false).id')
+
+if [[ $active_monitor_id == "1" ]]; then
+    active_ws="$target"
+    passive_ws="${target}${target}"
+else
+    active_ws="${target}${target}"
+    passive_ws="$target"
+fi
+
+hyprctl --batch \
+  "dispatch focusmonitor $passive_monitor_id ; \
+  dispatch workspace $passive_ws ; \
+  dispatch focusmonitor $active_monitor_id ; \
+  dispatch workspace $active_ws"
