@@ -1,0 +1,7 @@
+{
+  "MouseRight": "Copy",
+  "Alt-c": "Copy",
+  "Alt-v": "Paste",
+  "Alt-x": "Cut",
+  "CtrlMouseLeft": "SelectLine"
+}

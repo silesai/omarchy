@@ -10,6 +10,9 @@ My own take on marchy. You need to install
   - numbered bookmarks
   - lua
 
+##
+Default terminal: `.config/foot`
+
 ## ISO creation and test ISO
 From directory containing [omarchy-iso repo](https://github.com/omacom/omarchy-iso)
 ```bash
