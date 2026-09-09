@@ -1312,11 +1312,6 @@ apply_system_transition() {
     /usr/share/icons/Yaru/scalable/actions/go-next-symbolic.svg
   as_root gtk-update-icon-cache /usr/share/icons/Yaru >/dev/null 2>&1 || true
 
-  as_root install -d -m 0777 /etc/chromium/policies/managed
-  as_root install -d -m 0755 /usr/lib/chromium
-  printf '%s\n' '{"browser":{"theme":{"color_scheme":0,"color_scheme2":0}}}' | \
-    as_root tee /usr/lib/chromium/initial_preferences >/dev/null
-
   if getent group docker >/dev/null; then
     as_root usermod -aG docker "$target_user"
   fi
@@ -2269,9 +2264,6 @@ if [[ -f $root/default/alacritty/Alacritty.desktop && ! -f $HOME/.local/share/ap
 fi
 if command -v update-desktop-database >/dev/null 2>&1; then
   update-desktop-database "$HOME/.local/share/applications" >/dev/null 2>&1 || true
-fi
-if command -v xdg-settings >/dev/null 2>&1; then
-  env -u BROWSER xdg-settings set default-web-browser chromium.desktop || true
 fi
 if command -v xdg-mime >/dev/null 2>&1; then
   xdg-mime default HEY.desktop x-scheme-handler/mailto || true
