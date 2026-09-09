@@ -10,6 +10,19 @@ My own take on marchy. You need to install
   - numbered bookmarks
   - lua
 
+## Nice themes
+- lumon
+- tokyo-night
+- last-horizon
+- osaka-jade
+
+Grey:
+- solitude
+
+Gold:
+- matte-black
+-
+
 ##
 Default terminal: `.config/foot`
 
