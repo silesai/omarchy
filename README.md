@@ -3,6 +3,10 @@
 ## What is this
 My own take on marchy. You need to install
 
+pacman:
+- freecad
+
+yay:
 - jamesdsp
 - firefox
 - chrome
